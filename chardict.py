@@ -9,7 +9,7 @@ for i in dirs:
     for y in range(0,30):
         for x in range(0,25):
             if pix[x,y]==(0,0,0):
-                cordlist.append(str(x)+","+str(y))#check from git
+                cordlist.append(str(x)+","+str(y))
     chardict.update({i[0]:cordlist})
 with open("CharacterMaps.py","wb") as f:
     f.write("chardict="+str(chardict))

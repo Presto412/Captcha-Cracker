@@ -1,6 +1,6 @@
-from PIL import Image
-import os
-def ParseCaptcha(img):
+##from PIL import Image
+##import os
+def CaptchaParse(img):
     captcha=""
     dirs=os.listdir("Chars")
     pix=img.load()
@@ -13,9 +13,11 @@ def ParseCaptcha(img):
     for j in range(25,151,25):
         ch=img.crop((j-25,19,j,49))
         pix1=ch.load()
+        matches={}
         for i in dirs:
             match=0
             black=0
+            pixx=0
             im2=Image.open("Chars\\"+i)
             pix2=im2.load()
             for y in range(0,30):
@@ -24,13 +26,13 @@ def ParseCaptcha(img):
                         match+=1
                     if pix2[x,y]==(0,0,0):
                         black+=1
-            if float(match)/float(black)>=0.94:
-                captcha+=str(i[0]).upper()
-    return captcha
-def main():
-    img=Image.open("10.png")
-    print ParseCaptcha(img)
-main()
-    
-                
-            
+                    if pix1[x,y]==(0,0,0):
+                        pixx+=1
+            if float(match)/float(black)>=0.9:
+                if pixx<black:
+                    ch.save("Chars\\"+i) # self learning
+                    print "Dictionary Updated"
+                matches.update({black:i[0].upper()})
+        captcha+=matches[max(matches.keys())]        
+    return captcha    
+
