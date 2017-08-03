@@ -1,0 +1,9 @@
+1. Fetched Captchas from website(500)
+2. Reduced Noise in all images
+3. Cropped out the characters in all images
+4. Sorted out the characters by percentage match
+5. Calculated the best character image(lowest number of pixels)
+6. Parsed the captcha by cropping image by size and checking for 94% match.
+
+Future steps:
+1. Optimisation by getting unique pixels if possible
