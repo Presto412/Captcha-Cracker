@@ -6,9 +6,9 @@ if not os.path.exists("Characters"):
 for i in range(0,100):
     fn="captchas//"+str(i)+".png"
     img=Image.open(fn)
-    for j in range(25,151,25):
+    for j in range(30,181,30):
         ct+=1
         fin="Characters\\"+str(ct)+".png"
-        ch=img.crop((j-25,19,j,49))
+        ch=img.crop((j-30,12,j,44))
         ch.save(fin)
     img.save(fn)

@@ -9,8 +9,8 @@ for i in range(0,len(order)):
         ct=0
         im=Image.open("SortedCharacters\\"+char+"\\"+i)
         pix=im.load()
-        for y in range(0,30):
-            for x in range(0,25):
+        for y in range(0,32):
+            for x in range(0,30):
                 if pix[x,y]==(0,0,0):
                     ct+=1
         if ct<=small:
