@@ -3,15 +3,16 @@ import os
 def CaptchaParse(img):
     captcha=""
     dirs=os.listdir("Chars")
+    img=img.convert('L')
     pix=img.load()
     for y in range(1,44):
         for x in range(1,179):
-            if pix[x,y-1]==(255,255,255) and pix[x,y]==(0,0,0) and pix[x,y+1]==(255,255,255):
-                pix[x,y]=(255,255,255)
-            if pix[x-1,y]==(255,255,255) and pix[x,y]==(0,0,0) and pix[x+1,y]==(255,255,255):
-                pix[x,y]=(255,255,255)
-            if pix[x,y]!=(255,255,255) and pix[x,y]!=(0,0,0):
-                pix[x,y]=(255,255,255)
+            if pix[x,y-1]==255 and pix[x,y]==0 and pix[x,y+1]==255:
+                pix[x,y]=255
+            if pix[x-1,y]==255 and pix[x,y]==0 and pix[x+1,y]==255:
+                pix[x,y]=255
+            if pix[x,y]!=255 and pix[x,y]!=0:
+                pix[x,y]=255
     for j in range(30,181,30):
         ch=img.crop((j-30,12,j,44))
         pix1=ch.load()
@@ -21,14 +22,21 @@ def CaptchaParse(img):
             black=0
             pixx=0
             im2=Image.open("Chars\\"+i)
+            im2=im2.convert('L')
             pix2=im2.load()
             for y in range(0,32):
                 for x in range(0,30):
-                    if pix1[x,y]==pix2[x,y] and pix2[x,y]==(0,0,0):
+##                    if pix1[x,y]==pix2[x,y] and pix2[x,y]==(0,0,0):
+##                        match+=1
+##                    if pix2[x,y]==(0,0,0):
+##                        black+=1
+##                    if pix1[x,y]==(0,0,0):
+##                        pixx+=1
+                    if pix1[x,y]==pix2[x,y] and pix2[x,y]==0:
                         match+=1
-                    if pix2[x,y]==(0,0,0):
+                    if pix2[x,y]==0:
                         black+=1
-                    if pix1[x,y]==(0,0,0):
+                    if pix1[x,y]==0:
                         pixx+=1
             if float(match)/float(black)>=0.80:
                 perc=float(match)/float(black)
