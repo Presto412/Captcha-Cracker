@@ -39,6 +39,6 @@ def CaptchaParse(img):
             captcha+="0"
 ##    img.save("testcaptcha\\"+captcha+".png")
     return captcha  
-img=Image.open("2.png")
-print CaptchaParse(img)
+##img=Image.open("2.png")
+##print CaptchaParse(img)
 
