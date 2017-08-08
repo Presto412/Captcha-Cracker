@@ -1,7 +1,4 @@
-function CaptchaParse(imgb64) {
-  //add code to read base64
-  //add code to convert to grayscale
-  //imgarr is 2d array of image
+function CaptchaParse(imgarr) {
   var captcha;
   var y,x;
   for (y=0;y<44;y++){
@@ -43,3 +40,32 @@ function CaptchaParse(imgb64) {
   return captcha;
 
 }
+function convertURIToImageData(URI) {
+  return new Promise(function(resolve, reject) {
+    if (URI == null) return reject();
+    var canvas = document.createElement('canvas'),
+        context = canvas.getContext('2d'),
+        image = new Image();
+    image.addEventListener('load', function() {
+      canvas.width = image.width;
+      canvas.height = image.height;
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      resolve(context.getImageData(0, 0, canvas.width, canvas.height));
+    }, false);
+    image.src = URI;
+  });
+}
+var URI = imgb64;
+convertURIToImageData(URI).then(function(imageData) {
+  arr=[]
+  newArr=[]
+  // Here you can use imageData
+  var arr=imageData["data"];
+  for(var i=0;i<imageData["data"].length;i+=4){
+    gval=imageData["data"][i]*0.299+imageData["data"][i+1]*0.587+imageData["data"][i+2]*0.114;
+    arr.push(gval);
+  }
+  while(arr.length) newArr.push(arr.splice(0,180));
+  var res=CaptchaParse(newArr);
+  //console.log(imageData);
+});
