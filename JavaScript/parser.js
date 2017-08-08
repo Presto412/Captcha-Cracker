@@ -8,7 +8,7 @@ function CaptchaParse(imgarr) {
       }
     }
   }
-  for (j=30;  j<181; j+=30){
+  for (var j=30;  j<181; j+=30){
     var matches=[]
     var chars="123456789ABCDEFGHIJKLMNPQRSTUVWXYZ"
     for (var i = 0; i < chars.length ; i++) {
