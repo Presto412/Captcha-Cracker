@@ -9,8 +9,8 @@ for i in sorted(dic.keys()):
     g.write('"'+str(i)+'":[\n')
     val=dic[i]
     for j in val:
-        g.write('\t'+str(j)+'\n')
-    g.write(']\n')
+        g.write('\t'+str(j)+',\n')
+    g.write('],\n')
 print "itworkd"
 
         
