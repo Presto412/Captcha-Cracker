@@ -55,17 +55,19 @@ function convertURIToImageData(URI) {
     image.src = URI;
   });
 }
-var URI = imgb64;
-convertURIToImageData(URI).then(function(imageData) {
-  arr=[]
-  newArr=[]
-  // Here you can use imageData
-  var arr=imageData["data"];
-  for(var i=0;i<imageData["data"].length;i+=4){
-    gval=imageData["data"][i]*0.299+imageData["data"][i+1]*0.587+imageData["data"][i+2]*0.114;
-    arr.push(gval);
-  }
-  while(arr.length) newArr.push(arr.splice(0,180));
-  var res=CaptchaParse(newArr);
-  //console.log(imageData);
-});
+function getimg(imgb64){
+  var URI = imgb64;
+  convertURIToImageData(URI).then(function(imageData) {
+    arr=[]
+    newArr=[]
+    // Here you can use imageData
+    var arr=imageData["data"];
+    for(var i=0;i<imageData["data"].length;i+=4){
+      gval=imageData["data"][i]*0.299+imageData["data"][i+1]*0.587+imageData["data"][i+2]*0.114;
+      arr.push(gval);
+    }
+    while(arr.length) newArr.push(arr.splice(0,180));
+    var res=CaptchaParse(newArr);
+    //console.log(imageData);
+  });
+}
