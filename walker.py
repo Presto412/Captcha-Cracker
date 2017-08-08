@@ -31,7 +31,7 @@ def CaptchaParse(img):
                         black+=1
                     if pix1[x,y]==(0,0,0):
                         pixx+=1
-            if float(match)/float(black)>=0.80:
+            if float(match)/float(black)>=0.85:
                 perc=float(match)/float(black)
                 matches.update({perc:i[0].upper()})
         try:
