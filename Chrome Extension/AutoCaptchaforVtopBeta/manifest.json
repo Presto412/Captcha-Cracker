@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "AutoCaptcha for VtopBeta",
+  "description": "This extension fills the captcha at vtopbeta.vit.ac.in",
+  "version": "1.0",
+  "author" : "Priyansh Jain",
+  "permissions": [
+    "*://vtopbeta.vit.ac.in/vtop/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://vtopbeta.vit.ac.in/vtop/*"],
+      "js": ["parser.js"]
+    }
+  ]
+}
