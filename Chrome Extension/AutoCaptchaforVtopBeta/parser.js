@@ -1164,7 +1164,7 @@ function CaptchaParse(imgarr) {
       var condition2 = imgarr[x-1][y] === 255 && imgarr[x][y] === 0 && imgarr[x+1][y]=== 255;
       var condition3 = imgarr[x][y] !== 255 && imgarr[x][y] !== 0;
       if (condition1 || condition2 || condition3) {
-            imgarr[x][y]=255
+            imgarr[x][y]=255;
       }
     }
   }
@@ -1244,10 +1244,11 @@ function SolveCap($img){
 }
 var img = document.getElementsByTagName("img")[1];
 var changebutton=document.getElementsByTagName('button')[0];
-changebutton.onclick=function(){
+changebutton.parentNode.removeChild(changebutton);
+/*changebutton.addEventListener('click',setTimeout(function(){
+  console.log("buttonclick");
   var img = document.getElementsByTagName("img")[1];
-  SolveCap(img);
-}
+  SolveCap(img);}),3000);*/
 if (img.complete) {
     SolveCap(img);
 } else {
