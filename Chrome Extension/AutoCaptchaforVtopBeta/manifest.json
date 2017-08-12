@@ -3,7 +3,7 @@
 
   "name": "AutoCaptcha for VtopBeta",
   "description": "This extension fills the captcha at vtopbeta.vit.ac.in",
-  "version": "1.0",
+  "version": "1.1",
   "author" : "Priyansh Jain",
   "permissions": [
     "*://vtopbeta.vit.ac.in/vtop/*"
