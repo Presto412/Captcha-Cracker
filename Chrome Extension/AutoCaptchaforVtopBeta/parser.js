@@ -1243,8 +1243,9 @@ function SolveCap($img){
   k[0].innerHTML="<center>AutoCaptcha-Made with ♥,CollegeCODE</center>";
 }
 var img = document.getElementsByTagName("img")[1];
-var changebutton=document.getElementsByTagName('button')[0];
-changebutton.parentNode.removeChild(changebutton);
+
+/*var changebutton=document.getElementsByTagName('button')[0];
+changebutton.parentNode.removeChild(changebutton);*/
 /*changebutton.addEventListener('click',setTimeout(function(){
   console.log("buttonclick");
   var img = document.getElementsByTagName("img")[1];
@@ -1254,3 +1255,9 @@ if (img.complete) {
 } else {
   console.log("wut");
 }
+
+// Support for New captcha
+var observer = new MutationObserver(function() {
+    SolveCap(document.getElementsByTagName("img")[1]);
+});
+observer.observe(document.getElementById('captchaRefresh'),{childList:true});
