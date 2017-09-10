@@ -3,14 +3,15 @@
 
   "name": "AutoCaptcha for VtopBeta",
   "description": "This extension fills the captcha at vtopbeta.vit.ac.in",
-  "version": "1.1",
+  "version": "1.2",
   "author" : "Priyansh Jain",
   "permissions": [
     "*://vtopbeta.vit.ac.in/vtop/*"
   ],
   "content_scripts": [
     {
-      "matches": ["*://vtopbeta.vit.ac.in/vtop/*"],
+      "matches": ["*://vtopbeta.vit.ac.in/vtop/",
+"*://vtopbeta.vit.ac.in/vtop/parentLogin"],
       "js": ["parser.js"]
     }
   ]
