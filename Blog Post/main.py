@@ -36,7 +36,7 @@ def main():
         bitmap = json.load(fin)
 
     # parses every character, 6 is number of characters
-    for j in range(image.width / 6, image.width + 1, image.width / 6):
+    for j in range( int(image.width / 6), image.width + 1, int(image.width / 6)):
         char_img = image.crop((j - 30, 12, j, 44))
         char_matrix = char_img.load()
         matches = {}
@@ -56,9 +56,9 @@ def main():
         try:
             captcha += matches[max(matches.keys())]
         except ValueError:
-            print "failed captcha"
+            print("failed captcha")
             captcha += "0"
-    print captcha
+    print(captcha)
 
 
 if __name__ == '__main__':
