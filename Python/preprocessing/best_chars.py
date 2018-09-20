@@ -12,8 +12,6 @@ for _, main_dir, _ in os.walk(input_folder_name):
         for image in os.listdir(os.path.join(input_folder_name, sub_dir)):
             img = Image.open(os.path.join(input_folder_name, sub_dir, image))
             black_count = img.getcolors()[1][0]
-            print("Black count for folder " + sub_dir + " is ", black_count)
             if black_count < min:
                 min = black_count
-                print("New min for folder " + sub_dir + " is " + str(min))
                 img.save(os.path.join(folder_name, sub_dir + '.png'))
