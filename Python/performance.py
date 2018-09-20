@@ -2,6 +2,7 @@ from os import walk
 import timeit
 import os
 from PIL import Image
+
 from algorithm import parser
 
 f = []
