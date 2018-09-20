@@ -4,6 +4,7 @@ import json
 
 CAPTCHA_DIM = (180, 45)
 CHARACTER_DIM = (30, 32)
+FPATH = os.path.dirname(os.path.realpath(__file__))
 
 
 def parse_captcha(img):
@@ -20,8 +21,7 @@ def parse_captcha(img):
 
     img_matrix = img.convert('L').load()
 
-    bitmaps_fpath = os.path.join(os.path.dirname(
-        os.path.realpath(__file__)), "bitmaps.json")
+    bitmaps_fpath = os.path.join(FPATH, "bitmaps.json")
 
     bitmaps = json.load(open(bitmaps_fpath))
 
@@ -69,5 +69,5 @@ def parse_captcha(img):
 
 
 if __name__ == '__main__':
-    img = Image.open("test.png")
+    img = Image.open(os.path.join(FPATH, "test.png"))
     print(parse_captcha(img))
