@@ -39,6 +39,7 @@ python performance.py
 - For the preprocessing, run the following after deleting all folders execpt downloaded captchas
 
 ```bash
+cd Python/preprocessing
 python reduce-noise.py
 python crop_chars.py
 python character_sort.py
