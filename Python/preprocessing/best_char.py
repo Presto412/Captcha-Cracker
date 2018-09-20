@@ -16,4 +16,3 @@ for i in range(0, len(order)):
         if ct <= small:
             small = ct
             im.save("Chars\\"+char+".png")
-print "it workd"
