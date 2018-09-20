@@ -14,5 +14,5 @@ for i in tqdm(range(100)):
 
     root = BeautifulSoup(response.text, "xml")
     img_data = root.find("img")["src"].strip("data:image/png;base64,")
-    with open("download/%s.png" % i, "wb") as fh:
+    with open("downloaded-captchas/%s.png" % i, "wb") as fh:
         fh.write(base64.b64decode(img_data))
