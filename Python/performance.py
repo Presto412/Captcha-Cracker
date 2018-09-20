@@ -8,7 +8,7 @@ from algorithm import parser
 
 def main():
 
-    f = os.listdir(os.path.join("preprocessing", "download"))
+    f = os.listdir(os.path.join("preprocessing", "downloaded-captchas"))
     timesum = 0
     size = len(f)
     count = 1
@@ -16,7 +16,8 @@ def main():
     mintime = 100
     currtime = 0
     for im in f:
-        img = Image.open(os.path.join("preprocessing", "download", str(im)))
+        img = Image.open(os.path.join(
+            "preprocessing", "downloaded-captchas", str(im)))
         starttime = timeit.default_timer()
         captcha = parser.parse_captcha(img)
         print("CAPTCHA:"+captcha)
