@@ -19,7 +19,11 @@ def parse_captcha(img):
     char_crop_threshold = {'upper': 12, 'lower': 44}
 
     img_matrix = img.convert('L').load()
-    bitmaps = json.load(open("bitmaps.json"))
+
+    bitmaps_fpath = os.path.join(os.path.dirname(
+        os.path.realpath(__file__)), "bitmaps.json")
+
+    bitmaps = json.load(open(bitmaps_fpath))
 
     # remove single pixel width noise + thresholding
     for y in range(1, img_height - 1):
@@ -65,5 +69,5 @@ def parse_captcha(img):
 
 
 if __name__ == '__main__':
-    img = Image.open(os.path.join("download", "2.png"))
+    img = Image.open("test.png")
     print(parse_captcha(img))
