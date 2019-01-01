@@ -1,6 +1,6 @@
 # Captcha Cracker
 
-Holds the source for the algorithm that cracks the captcha at VIT University's [Academic Portal](https://vtopbeta.vit.ac.in/vtop/)
+Holds the source for the algorithm that **used to** crack the captcha at VIT University's [Academic Portal](https://vtop.vit.ac.in/vtop/). Now, they use ReCaptcha by Google.
 
 ## Related Chrome Extension
 
